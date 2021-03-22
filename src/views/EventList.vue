@@ -1,15 +1,17 @@
 <template>
   <h1>Events for Good</h1>
   <div class="events">
-    <EventCard v-for="event in events" :key="event.id" :event="event" />
+    <EventCard v-for="event in events.events" :key="event.id" :event="event" />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { EventList } from '@/types'
 
 import EventCard from '../components/EventCard.vue'
 import EventService from '../services/EventService'
+//import EventList from './EventList.vue'
 
 export default defineComponent({
   name: 'EventList',
@@ -18,7 +20,7 @@ export default defineComponent({
   },
   data() {
     return {
-      events: null
+      events: {} as EventList
     }
   },
   created() {
